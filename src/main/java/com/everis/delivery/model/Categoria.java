@@ -5,7 +5,7 @@ import lombok.Data;
 
 public enum Categoria {
 
-     PIZZA,
+    PIZZA,
     BEBIDA,
     ESFIHA
 }

@@ -1,0 +1,158 @@
+<!doctype html>
+<html xmlns:th="http://thymeleaft.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ever Pizzas</title>
+  <link rel="stylesheet" href="http://localhost:8080/assets/css/style.css">
+  <link rel="stylesheet" href="http://localhost:8080/assets/css/bootstrap.min.css">
+  <script src="http://localhost:8080/assets/js/bootstrap.min.js"></script>
+  <script src="http://localhost:8080/assets/js/jquery-3.6.0.min.js"></script>
+  <script src="http://localhost:8080/assets/js/script.js"></script>
+</head>
+
+<body>
+
+  <div class="topbar">
+    <div class="topbar-int container">
+
+      <div class="logo-area">
+        <a href="#"><img class="logo" src="assets/media/images/logo.png"></a>
+      </div>
+
+      <nav class="menubar">
+        <ul class="menu">
+          <li><a href="">INÌCIO</a></li>
+          <li><a href="">MENU</a></li>
+          <li><a href="">MENU</a></li>
+          <li><a href="">MENU</a></li>
+          <li><a href="">MENU</a></li>
+          <li><a href="">MENU</a></li>
+        </ul>
+      </nav>
+      <div class="login-area">
+        <button class="btn btn-success" id="login-bt">Login</button>
+        <button class="btn btn-success" id="cadastro-bt">Cadastrar</button>
+
+        <div class="login-modal">
+
+          <button class="btn btn-danger close-bt" id="login-close">X</button>
+
+          <form method="POST" class="form">
+
+            <h6>Acesse sua conta</h6>
+
+            <div class="form-group">
+              <input class="form-control" type="email" name="email" placeholder="Digite o seu e-mail">
+            </div>
+
+            <br>
+
+            <div class="form-group">
+              <input class="form-control" type="password" name="password" placeholder="Digite sua senha">
+            </div>
+
+            <br>
+
+            <a href="#">Esqueci a senha</a><br>
+
+            <br>
+
+            <button type="submit" class="btn btn-success">Entrar</button>
+
+          </form>
+        </div>
+
+        <div class="cadastro-modal">
+
+          <button class="btn btn-danger close-bt" id="cad-close">X</button>
+
+          <form method="POST" class="form">
+  
+            <h6>Cadastrar</h6>
+  
+            <div class="form-group">
+              <input class="form-control" type="text" name="name" placeholder="Digite o seu nome">
+            </div><br>
+  
+            <div class="form-group">
+              <input class="form-control" type="text" name="rg" placeholder="Digite o seu RG">
+            </div><br>
+  
+            <div class="form-group">
+              <input class="form-control" type="text" name="cpf" placeholder="Digite o seu CPF">
+            </div><br>
+  
+            <div class="form-group">
+              <input class="form-control" type="email" name="email" placeholder="Digite o seu e-mail">
+            </div><br>
+  
+            <div class="form-group">
+              <input class="form-control" type="text" name="address" placeholder="Digite o seu endereço">
+            </div>
+  
+            <br>
+  
+            <div class="form-group">
+              <input class="form-control" type="password" name="password" placeholder="Digite sua senha">
+            </div>
+  
+            <br>
+  
+            <button type="submit" class="btn btn-success">Cadastrar</button>
+  
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <section class="items">
+      <div class="card item" th:each="produto : ${produtos}">
+        <img src="assets/media/images/pizza.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title" th:text="${produto.nomeProduto}"></h5>
+          <p class="card-text" th:text="${produto.descricao}"></p>
+          <p class="card-text" th:text="${produto.preco}"></p>
+        </div>
+        <div class="card-body">
+          <a href="#" class="card-link btn btn-success">Adicionar á sacola</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-int">
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="footer-left">
+
+            </div>
+          </div>
+  
+          <div class="col-sm-4">
+            <div class="footer-center">
+              <h6>Ever Pizzas - Todos os direitos reservados</h6>
+            </div>
+          </div>
+          
+          <div class="col-sm-4">
+            <div class="footer-right">
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
