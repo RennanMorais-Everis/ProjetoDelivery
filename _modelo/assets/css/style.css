@@ -9,6 +9,10 @@
     justify-content: space-between;
 }
 
+.logo {
+    width: 130px;
+}
+
 .menu {
     list-style: none;
 }
@@ -50,4 +54,41 @@
     margin-bottom: 30px;
     margin-right: 20px;
     width: 18rem;
+}
+
+/*Estilos do rodapé da página*/
+.footer {
+    margin-top: 20px;
+    background-color: #93AF00;
+    color: #FFF;
+}
+
+.footer-int {
+    height: 300px;
+}
+
+.footer-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+}
+
+/*Estilos do modal de login e cadastro*/
+.login-modal {
+    width: 100%;
+    max-width: 400px;
+    height: 500px;
+    position: absolute;
+    background-color: #FFF;
+    border: solid 1px #93AF00;
+    z-index: 99;
+    top: 100px;
+    margin-right: 200px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.login-area {
+    
 }
