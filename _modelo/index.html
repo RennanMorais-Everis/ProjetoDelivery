@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
   <script src="assets/js/bootstrap.min.js"></script>
+  <script src="assets/js/jquery-3.6.0.min.js"></script>
+  <script src="assets/js/script.js"></script>
 </head>
 
 <body>
@@ -29,9 +31,13 @@
         </ul>
       </nav>
       <div class="login-area">
-        <a class="btn btn-success" href="">Login</a>
-        <a class="btn btn-success" href="">Cadastrar</a>
+        <button class="btn btn-success" id="login-bt">Login</button>
+        <button class="btn btn-success" id="cadastro-bt">Cadastrar</button>
+
         <div class="login-modal">
+
+          <button class="btn btn-danger close-bt" id="login-close">X</button>
+
           <form method="POST" class="form">
 
             <h6>Acesse sua conta</h6>
@@ -56,7 +62,51 @@
 
           </form>
         </div>
+
+        <div class="cadastro-modal">
+
+          <button class="btn btn-danger close-bt" id="cad-close">X</button>
+
+          <form method="POST" class="form">
+  
+            <h6>Cadastrar</h6>
+  
+            <div class="form-group">
+              <input class="form-control" type="text" name="name" placeholder="Digite o seu nome">
+            </div><br>
+  
+            <div class="form-group">
+              <input class="form-control" type="text" name="rg" placeholder="Digite o seu RG">
+            </div><br>
+  
+            <div class="form-group">
+              <input class="form-control" type="text" name="cpf" placeholder="Digite o seu CPF">
+            </div><br>
+  
+            <div class="form-group">
+              <input class="form-control" type="email" name="email" placeholder="Digite o seu e-mail">
+            </div><br>
+  
+            <div class="form-group">
+              <input class="form-control" type="text" name="address" placeholder="Digite o seu endereço">
+            </div>
+  
+            <br>
+  
+            <div class="form-group">
+              <input class="form-control" type="password" name="password" placeholder="Digite sua senha">
+            </div>
+  
+            <br>
+  
+            <button type="submit" class="btn btn-success">Cadastrar</button>
+  
+          </form>
+        </div>
+
       </div>
+
+    </div>
     </div>
   </div>
 

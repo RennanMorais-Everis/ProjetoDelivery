@@ -40,7 +40,7 @@
     align-items: center;
 }
 
-.login-area a {
+.login-area button {
     margin-right: 10px;
 }
 
@@ -87,8 +87,25 @@
     margin-right: 200px;
     padding: 20px;
     border-radius: 5px;
+    display: none;
 }
 
-.login-area {
-    
+.cadastro-modal {
+    width: 100%;
+    max-width: 400px;
+    height: 500px;
+    position: absolute;
+    background-color: #FFF;
+    border: solid 1px #93AF00;
+    z-index: 99;
+    top: 100px;
+    margin-right: 200px;
+    padding: 20px;
+    border-radius: 5px;
+    display: none;
+}
+
+.close-bt {
+    margin-top: -10px;
+    margin-left: 335px;
 }
