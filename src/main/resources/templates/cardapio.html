@@ -23,12 +23,9 @@
 
       <nav class="menubar">
         <ul class="menu">
-          <li><a href="">INÌCIO</a></li>
-          <li><a href="">MENU</a></li>
-          <li><a href="">MENU</a></li>
-          <li><a href="">MENU</a></li>
-          <li><a href="">MENU</a></li>
-          <li><a href="">MENU</a></li>
+          <li><a href="http://localhost:8080/home">INÌCIO</a></li>
+          <li><a href="http://localhost:8080/cardapio">CARDAPIO</a></li>
+          <li><a href="http://localhost:8080/sobre">SOBRE</a></li>
         </ul>
       </nav>
       <div class="login-area">
@@ -39,25 +36,19 @@
 
           <button class="btn btn-danger close-bt" id="login-close">X</button>
 
-          <form method="POST" class="form">
+          <form method="POST" action="http://localhost:8080/login" class="form">
 
             <h6>Acesse sua conta</h6>
 
             <div class="form-group">
               <input class="form-control" type="email" name="email" placeholder="Digite o seu e-mail">
-            </div>
-
-            <br>
+            </div><br>
 
             <div class="form-group">
               <input class="form-control" type="password" name="password" placeholder="Digite sua senha">
-            </div>
+            </div><br>
 
-            <br>
-
-            <a href="#">Esqueci a senha</a><br>
-
-            <br>
+            <a href="#">Esqueci a senha</a><br><br>
 
             <button type="submit" class="btn btn-success">Entrar</button>
 
@@ -68,7 +59,7 @@
 
           <button class="btn btn-danger close-bt" id="cad-close">X</button>
 
-          <form method="POST" class="form">
+          <form method="POST" action="http://localhost:8080/cadastrar" class="form">
   
             <h6>Cadastrar</h6>
   
@@ -90,15 +81,11 @@
   
             <div class="form-group">
               <input class="form-control" type="text" name="address" placeholder="Digite o seu endereço">
-            </div>
-  
-            <br>
+            </div><br>
   
             <div class="form-group">
               <input class="form-control" type="password" name="password" placeholder="Digite sua senha">
-            </div>
-  
-            <br>
+            </div><br>
   
             <button type="submit" class="btn btn-success">Cadastrar</button>
   
