@@ -25,8 +25,6 @@ public class CardapioServiceImplements implements CardapioService {
     }
 
     @Override
-    public Produto save(Produto produto) {
-        return cardapioRepository.save(produto);
-    }
+    public Produto save(Produto produto) {return cardapioRepository.save(produto);}
 
 }
