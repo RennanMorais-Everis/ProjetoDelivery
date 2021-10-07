@@ -16,6 +16,8 @@ public class Usuario {
 
     @NotBlank
     private String nome;
+
+    @NotBlank
     private String rg;
 
     @NotBlank
@@ -26,5 +28,8 @@ public class Usuario {
 
     @OneToMany // um cliente para varios endereco
     private List<Logradouro> logradouro;
+
+    @NotBlank
+    private String senha;
 
 }
