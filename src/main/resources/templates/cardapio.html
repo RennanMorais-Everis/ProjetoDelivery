@@ -32,6 +32,10 @@
         <button class="btn btn-success" id="login-bt">Login</button>
         <button class="btn btn-success" id="cadastro-bt">Cadastrar</button>
 
+        <div class="alert alert-danger" id="error" th:if="${not #strings.isEmpty(message)}">
+          <span th:text="${message}"></span>
+        </div>
+
         <div class="login-modal">
 
           <button class="btn btn-danger close-bt" id="login-close">X</button>
@@ -60,34 +64,37 @@
           <button class="btn btn-danger close-bt" id="cad-close">X</button>
 
           <form method="POST" action="http://localhost:8080/cadastrar" class="form">
-  
+
             <h6>Cadastrar</h6>
 
-            
             <div class="form-group">
-              <input class="form-control" type="text" name="name" placeholder="Digite o seu nome">
+              <input class="form-control" type="text" name="nome" placeholder="Digite o seu nome">
             </div><br>
-  
-            <div class="form-group">
-              <input class="form-control" type="text" name="rg" placeholder="Digite o seu RG">
-            </div><br>
-  
+
             <div class="form-group">
               <input class="form-control" type="text" name="cpf" placeholder="Digite o seu CPF">
             </div><br>
-  
+
             <div class="form-group">
               <input class="form-control" type="email" name="email" placeholder="Digite o seu e-mail">
             </div><br>
-  
+
             <div class="form-group">
-              <input class="form-control" type="text" name="address" placeholder="Digite o seu endereço">
+              <input class="form-control" type="text" name="cep" placeholder="Digite o seu CEP">
             </div><br>
-  
+
             <div class="form-group">
-              <input class="form-control" type="password" name="password" placeholder="Digite sua senha">
+              <input class="form-control" type="text" name="endereco" placeholder="Digite o seu endereço">
             </div><br>
-  
+
+            <div class="form-group">
+              <input class="form-control" type="text" name="numero" placeholder="Número">
+            </div><br>
+
+            <div class="form-group">
+              <input class="form-control" type="password" name="senha" placeholder="Digite uma senha">
+            </div><br>
+
             <button type="submit" class="btn btn-success">Cadastrar</button>
 
           </form>

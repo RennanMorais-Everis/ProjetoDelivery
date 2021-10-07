@@ -93,7 +93,7 @@
 .cadastro-modal {
     width: 100%;
     max-width: 400px;
-    height: 500px;
+    height: 600px;
     position: absolute;
     background-color: #FFF;
     border: solid 1px #93AF00;
@@ -117,4 +117,9 @@
 .content-int {
     margin-top: 50px;
     text-align: center;
+}
+
+#error {
+    position: absolute;
+    top: 8%;
 }

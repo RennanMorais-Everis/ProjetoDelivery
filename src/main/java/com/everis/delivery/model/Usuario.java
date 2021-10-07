@@ -18,18 +18,24 @@ public class Usuario {
     private String nome;
 
     @NotBlank
-    private String rg;
-
-    @NotBlank
     private String cpf;
 
     @NotBlank
     private String email;
 
-    @OneToMany // um cliente para varios endereco
-    private List<Logradouro> logradouro;
+    @NotBlank
+    private String cep;
+
+    @NotBlank
+    private String endereco;
+
+    @NotBlank
+    private String numero;
 
     @NotBlank
     private String senha;
+
+    @Enumerated(EnumType.STRING)
+    private NivelAcesso nivel = NivelAcesso.NORMAL;
 
 }

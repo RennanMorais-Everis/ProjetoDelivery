@@ -1,7 +1,6 @@
 package com.everis.delivery.service;
 
 import com.everis.delivery.model.Usuario;
-
 import java.util.List;
 
 public interface UsuarioService {

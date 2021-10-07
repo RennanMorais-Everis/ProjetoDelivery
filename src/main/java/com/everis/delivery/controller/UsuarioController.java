@@ -23,6 +23,7 @@ public class UsuarioController {
             attributes.addFlashAttribute("message", "Campos obrigatórios não preenchidos!");
             return "redirect:/cardapio";
         }
+
         usuarioService.save(usuario);
         return "redirect:/cardapio";
     }
