@@ -72,27 +72,27 @@
                       </div>
                     </div> 
             </div>
-                    <div class="seedstarterlist" th:unless="${#lists.isEmpty(allSeedStarters)}">
+                    <div>
 
-                        <h2 th:text="#{title.list}">Lista de Produtos</h2>
+                        <h2>Lista de Produtos</h2>
 
                         <table class="table bg-white table-hover rounded shadow-sm text-center justify-content-center">
                             <thead class="table-dark">
                                 <tr>
-                                    <th scope="col" th:text="#{seedstarter.rows}">Produto</th>
-                                    <th scope="col" th:text="#{seedstarter.rows}">Nome</th>
-                                    <th scope="col" th:text="#{seedstarter.type}">Descrição</th>
-                                    <th th:text="#{seedstarter.rows}">Preço</th>
+                                    <th scope="col">Produto</th>
+                                    <th scope="col">Nome</th>
+                                    <th scope="col">Descrição</th>
+                                    <th scope="col">Preço</th>
                                     <th scope="col">Ações</th>
 
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr th:each="sb : ${allSeedStarters}">
-                                    <th scope="row" th:text="${rowStat.count}">Pizza</th>
-                                    <td th:text="${{sb.datePlanted}}">Ever Calabresa</td>
-                                    <td th:text="${row.variety.name}">Massa, Molho, Calabresa, Cebola</td>
-                                    <td th:text="${rowStat.count}">35,00</td>
+                                <tr>
+                                    <th scope="row">Pizza</th>
+                                    <td>Ever Calabresa</td>
+                                    <td>Massa, Molho, Calabresa, Cebola</td>
+                                    <td>35,00</td>
                                     <td>
                                       <button type="button" class="btn btn-warning"  data-bs-toggle="modal" data-bs-target="#Modaltwo"><i class="fa-solid fa-pen-to-square"></i> Editar</button>
                         <button type="button" class="btn btn-danger"><i class="fa-solid fa-square-minus"></i> Delete</button>
@@ -107,14 +107,21 @@
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                      <h5 class="modal-title" id="exampleModalLabel">Adicionar Produtos</h5>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                      ...
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <form class="form-group" method="post">
+                      <input class="form-control" type="text" name="produto" placeholder="Produto" aria-label="default input example">
+                      <br>
+                      <input class="form-control" type="text" name="nome" placeholder="Nome" aria-label="default input example">
+                      <br>
+                      <input class="form-control" type="text" name="descricao" placeholder="Descrição" aria-label="default input example">
+                      <br>
+                      <input class="form-control" type="text" name="preco" placeholder="R$" aria-label="default input example">
+                      <br>
+                      <button type="submit" class="btn btn-success" >Enviar</button>
+                    </form>
                     </div>
                   </div>
                 </div>
