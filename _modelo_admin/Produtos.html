@@ -66,6 +66,12 @@
             </nav>
             <div class="container">
                 <div class="row">
+                  <div class="col-md-6 float-end text-end">
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#Modalone"><i class="fa-solid fa-plus"></i> Adicionar</button>
+                      </div>
+                    </div> 
+            </div>
                     <div class="seedstarterlist" th:unless="${#lists.isEmpty(allSeedStarters)}">
 
                         <h2 th:text="#{title.list}">Lista de Produtos</h2>
@@ -77,6 +83,7 @@
                                     <th scope="col" th:text="#{seedstarter.rows}">Nome</th>
                                     <th scope="col" th:text="#{seedstarter.type}">Descrição</th>
                                     <th th:text="#{seedstarter.rows}">Preço</th>
+                                    <th scope="col">Ações</th>
 
                                 </tr>
                             </thead>
@@ -86,18 +93,14 @@
                                     <td th:text="${{sb.datePlanted}}">Ever Calabresa</td>
                                     <td th:text="${row.variety.name}">Massa, Molho, Calabresa, Cebola</td>
                                     <td th:text="${rowStat.count}">35,00</td>
+                                    <td>
+                                      <button type="button" class="btn btn-warning"  data-bs-toggle="modal" data-bs-target="#Modaltwo"><i class="fa-solid fa-pen-to-square"></i> Editar</button>
+                        <button type="button" class="btn btn-danger"><i class="fa-solid fa-square-minus"></i> Delete</button>
+                                    </td>
                             </tbody>
                         </table>
                     </div>
                 </div>
-                <div class="col-md-6 float-end text-end">
-                    <div class="btn-group" role="group" aria-label="Basic example">
-                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#Modalone"><i class="fa-solid fa-plus"></i> Adicionar</button>
-                        <button type="button" class="btn btn-warning"  data-bs-toggle="modal" data-bs-target="#Modaltwo"><i class="fa-solid fa-pen-to-square"></i> Editar</button>
-                        <button type="button" class="btn btn-danger"><i class="fa-solid fa-square-minus"></i> Delete</button>
-                      </div>
-                    </div> 
-            </div>
               
               <!-- Modal1 -->
               <div class="modal fade" id="Modalone" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
