@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaft.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ===== CSS & Fontawesome ===== -->
+    <link href="http://localhost:8080/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="http://localhost:8080/assets/css/style.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/44922e80c2.js" crossorigin="anonymous"></script>
+
+    <title>Ever Pizzas</title>
+</head>
+
+<body>
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar -->
+        <div class="bg-white" id="sidebar-wrapper">
+            <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><img
+                    src="assets/media/images/logo.png" class="img-thumbnail img-fluid" height="100px"
+                    width="100px"></div>
+            <div class="list-group list-group-flush my-3">
+                <a href="index.html" class="list-group-item list-group-item-action bg-transparent second-text active"><i
+                        class="fa-solid fa-house"></i> Home</a>
+                <a href="http://localhost:8080/produtos" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                        class="fas fa-shopping-cart"></i> Produtos</a>
+                <a href="http://localhost:8080/pedidos" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                        class="fas fa-list-alt"></i> Pedidos</a>
+                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                        class="fas fa-sign-out-alt"></i> Sair</a>
+            </div>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
+                    <h2 class="fs-2 m-0">Menu</h2>
+                </div>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle second-text fw-bold" href="#" id="navbarDropdown"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-user me-2"></i>Breno Borges
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#"><i class="fa-solid fa-user"></i> Perfil</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fa-solid fa-screwdriver-wrench"></i>
+                                        Configurações</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i>Sair</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="container">
+                <div class="row">
+
+                    <div class="seedstarterlist" th:unless="${#lists.isEmpty(allSeedStarters)}">
+
+                        <h2 th:text="#{title.list}">Lista de Pedidos Finalizados</h2>
+
+                        <table class="table bg-white table-hover rounded shadow-sm text-center justify-content-center">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th scope="col" th:text="#{seedstarter.rows}">Pedido</th>
+                                    <th scope="col" th:text="#{seedstarter.datePlanted}">Data</th>
+                                    <th scope="col" th:text="#{seedstarter.rows}">Nome</th>
+                                    <th scope="col" th:text="#{seedstarter.rows}">Telefone</th>
+                                    <th scope="col" th:text="#{seedstarter.type}">Detalhes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="sb : ${allSeedStarters}">
+                                    <th scope="row" th:text="${rowStat.count}">001</th>
+                                    <td th:text="${{sb.datePlanted}}">13/01/2011</td>
+                                    <td th:text="${row.variety.name}">Felipe Freitas</td>
+                                    <td th:text="${row.seedsPerCell}">11 91234-1234</td>
+                                    <td th:text="#{|seedstarter.type.${sb.type}|}">
+                                        <!-- Button trigger modal -->
+                                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
+                                            data-bs-target="#staticBackdrop">
+                                            Detalhes do Pedido
+                                        </button>
+                                    </td>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" th:text="#{title.list}" id="staticBackdropLabel">Detalhes do
+                                Pedido</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="seedstarterlist" th:unless="${#lists.isEmpty(allSeedStarters)}">
+                                <table class="table table-hover rounded shadow-sm">
+                                    <thead class="table-dark text-center justify-content-center">
+                                        <tr>
+                                            <th th:text="#{seedstarter.rows}">Nome</th>
+                                            <th th:text="#{seedstarter.features}">Endereço</th>
+                                            <th th:text="#{seedstarter.rows}">Quantd.</th>
+                                            <th th:text="#{seedstarter.type}">Descrição</th>
+                                            <th th:text="#{seedstarter.rows}">Preço</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr th:each="row,rowStat : ${sb.rows}, sb : ${allSeedStarters}">
+                                            <td th:text="${row.variety.name}">Felipe Freitas</td>
+                                            <td th:text="${#strings.arrayJoin(
+     #messages.arrayMsg(
+         #strings.arrayPrepend(sb.features,'seedstarter.feature.')),
+     ', ')}">Rua olamundo, nº infinity</td>
+                                            <td th:text="${rowStat.count}">1 , <br> 1, <br> 2</td>
+                                            <td th:text="#{|seedstarter.type.${sb.type}|}">Ever
+                                                Calabresa,<br>Coca-cola 2L <br>Ever Esfirra</td>
+                                            <td th:text="${rowStat.count}">35,00, <br> 10,00, <br> 10,00</td>
+                                        </tr>
+                                    </tbody>
+                                    <div class="col">
+                                        <thead>
+                                            <tr class="bg-dark text-white justify-content-end">
+                                                <th th:text="#{seedstarter.type}" class="text-end"> Forma de
+                                                    Pagamento:</th>
+                                                <th th:text="#{|seedstarter.type.${sb.type}|}" class="text-start">Cartão
+                                                    de Credito</th>
+                                                <th></th>
+                                                <th th:text="#{seedstarter.rows}" class="text-end">Total:</th>
+                                                <th th:text="${rowStat.count}" class="text-start">55,00</th>
+                                            </tr>
+                                    </div>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                     </div>
+
+                        <script src="assets/js/bootstrap.bundle.js"></script>
+                        <script>
+                            var el = document.getElementById("wrapper");
+                            var toggleButton = document.getElementById("menu-toggle");
+
+                            toggleButton.onclick = function () {
+                                el.classList.toggle("toggled");
+                            };
+                </script>
+
+</body>
+
+
+
+</html>

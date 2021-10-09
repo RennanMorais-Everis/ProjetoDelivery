@@ -16,14 +16,19 @@ public class ProdutosController {
     CardapioService cardapioService;
 
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
-    public ModelAndView getProdutos() {
+    public ModelAndView getAdmin() {
         ModelAndView mv = new ModelAndView("admin");
         List<Produto> produtos = cardapioService.findAll();
         mv.addObject("produtos", produtos);
         return mv;
     }
 
+    @RequestMapping(value = "/produtos", method = RequestMethod.GET)
+    public ModelAndView getProdutos() {
+        ModelAndView mv = new ModelAndView("produtos");
+        List<Produto> produtos = cardapioService.findAll();
+        mv.addObject("produtos", produtos);
+        return mv;
 
-
-
+    }
 }
