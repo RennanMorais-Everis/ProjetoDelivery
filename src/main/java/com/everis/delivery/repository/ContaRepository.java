@@ -1,17 +1,14 @@
 package com.everis.delivery.repository;
 
-
-
-import com.everis.delivery.model.Pagamento;
+import com.everis.delivery.model.Conta;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.NoRepositoryBean;
 import org.springframework.stereotype.Repository;
 
-
-
 @Repository
 @NoRepositoryBean
-public interface PagamentoRepository extends CrudRepository<Pagamento, Integer> {
+public interface ContaRepository extends CrudRepository<Conta, Integer> {
 
-    Pagamento findbyId(Integer idPagamento);
+
+    Conta findbyId(Integer origem);
 }
