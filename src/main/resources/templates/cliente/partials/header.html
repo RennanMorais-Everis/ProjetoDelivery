@@ -1,0 +1,111 @@
+<!doctype html>
+<html xmlns:th="http://thymeleaft.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ever Pizzas</title>
+    <link rel="stylesheet" href="http://localhost:8080/assets/css/style.css">
+    <link rel="stylesheet" href="http://localhost:8080/assets/css/bootstrap.min.css">
+    <script src="http://localhost:8080/assets/js/bootstrap.min.js"></script>
+    <script src="http://localhost:8080/assets/js/jquery-3.6.0.min.js"></script>
+    <script src="http://localhost:8080/assets/js/script.js"></script>
+</head>
+
+<body>
+
+<div class="topbar">
+    <div class="topbar-int container">
+
+        <div class="logo-area">
+            <a href="http://localhost:8080"><img class="logo" src="assets/media/images/logo.png"></a>
+        </div>
+
+        <nav class="menubar">
+            <ul class="menu">
+                <li><a href="/">INÌCIO</a></li>
+                <li><a href="/cardapio">CARDAPIO</a></li>
+                <li><a href="/sobre">SOBRE</a></li>
+            </ul>
+        </nav>
+        <div class="login-area">
+            <button class="btn btn-success" id="login-bt">Login</button>
+            <button class="btn btn-success" id="cadastro-bt">Cadastrar</button>
+
+            <div class="alert alert-danger" id="messageError" th:if="${not #strings.isEmpty(messageError)}">
+                <span th:text="${messageError}"></span>
+            </div>
+
+            <div class="alert alert-success" id="messageSuccess" th:if="${not #strings.isEmpty(messageSuccess)}">
+                <span th:text="${messageSuccess}"></span>
+            </div>
+
+            <div class="login-modal">
+
+                <button class="btn btn-danger close-bt" id="login-close">X</button>
+
+                <form method="POST" action="http://localhost:8080/login" class="form">
+
+                    <h6>Acesse sua conta</h6>
+
+                    <div class="form-group">
+                        <input class="form-control" type="email" name="email" placeholder="Digite o seu e-mail">
+                    </div><br>
+
+                    <div class="form-group">
+                        <input class="form-control" type="password" name="password" placeholder="Digite sua senha">
+                    </div><br>
+
+                    <a href="#">Esqueci a senha</a><br><br>
+
+                    <button type="submit" class="btn btn-success">Entrar</button>
+
+                </form>
+            </div>
+
+            <div class="cadastro-modal">
+
+                <button class="btn btn-danger close-bt" id="cad-close">X</button>
+
+                <form method="POST" action="http://localhost:8080/cadastrar" class="form">
+
+                    <h6>Cadastrar</h6>
+
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="nome" placeholder="Digite o seu nome">
+                    </div><br>
+
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="cpf" placeholder="Digite o seu CPF">
+                    </div><br>
+
+                    <div class="form-group">
+                        <input class="form-control" type="email" name="email" placeholder="Digite o seu e-mail">
+                    </div><br>
+
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="cep" placeholder="Digite o seu CEP">
+                    </div><br>
+
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="endereco" placeholder="Digite o seu endereço">
+                    </div><br>
+
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="numero" placeholder="Número">
+                    </div><br>
+
+                    <div class="form-group">
+                        <input class="form-control" type="password" name="senha" placeholder="Digite uma senha">
+                    </div><br>
+
+                    <button type="submit" class="btn btn-success">Cadastrar</button>
+
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+</div>

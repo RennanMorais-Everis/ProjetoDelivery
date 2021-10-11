@@ -1,0 +1,98 @@
+<th:block th:include="admin/partials/header"></th:block>
+
+    <div class="container">
+        <div class="row">
+          <div class="col-md-6 float-end text-end">
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#Modalone"><i class="fa-solid fa-plus"></i> Adicionar</button>
+              </div>
+          </div>
+        </div>
+    <div>
+
+        <h2>Lista de Produtos</h2>
+
+            <table class="table bg-white table-hover rounded shadow-sm text-center justify-content-center">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">Produto</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Descrição</th>
+                        <th scope="col">Preço</th>
+                        <th scope="col">Ações</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Pizza</th>
+                        <td>Ever Calabresa</td>
+                        <td>Massa, Molho, Calabresa, Cebola</td>
+                        <td>35,00</td>
+                        <td>
+                            <button type="button" class="btn btn-warning"  data-bs-toggle="modal" data-bs-target="#Modaltwo"><i class="fa-solid fa-pen-to-square"></i> Editar</button>
+                            <button type="button" class="btn btn-danger"><i class="fa-solid fa-square-minus"></i> Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+              
+    <!-- Modal1 -->
+      <div class="modal fade" id="Modalone" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Adicionar Produtos</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form class="form-group" method="post">
+              <input class="form-control" type="text" name="produto" placeholder="Produto" aria-label="default input example">
+              <br>
+              <input class="form-control" type="text" name="nome" placeholder="Nome" aria-label="default input example">
+              <br>
+              <input class="form-control" type="text" name="descricao" placeholder="Descrição" aria-label="default input example">
+              <br>
+              <input class="form-control" type="text" name="preco" placeholder="R$" aria-label="default input example">
+              <br>
+              <button type="submit" class="btn btn-success" >Enviar</button>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+        <!-- Modal2 -->
+
+      <div class="modal fade" id="Modaltwo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    <script src="assets/js/bootstrap.bundle.js"></script>
+    <script>
+        var el = document.getElementById("wrapper");
+        var toggleButton = document.getElementById("menu-toggle");
+
+        toggleButton.onclick = function () {
+            el.classList.toggle("toggled");
+        };
+    </script>
+</body>
+
+</html>
