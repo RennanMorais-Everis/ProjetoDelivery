@@ -24,14 +24,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">Pizza</th>
-                        <td>Ever Calabresa</td>
-                        <td>Massa, Molho, Calabresa, Cebola</td>
-                        <td>35,00</td>
+                    <tr th:each="produto : ${produtos}">
+                        <th scope="row" th:text="${produto.categoria}"></th>
+                        <td th:text="${produto.nomeProduto}"></td>
+                        <td th:text="${produto.descricao}"></td>
+                        <td>R$ <span th:text="${produto.preco}"></span></td>
                         <td>
-                            <button type="button" class="btn btn-warning"  data-bs-toggle="modal" data-bs-target="#Modaltwo"><i class="fa-solid fa-pen-to-square"></i> Editar</button>
-                            <button type="button" class="btn btn-danger"><i class="fa-solid fa-square-minus"></i> Delete</button>
+                            <a th:href="@{/produto/edit/{id}(id=${produto.id})}" href="/produto/edit/" type="button" class="btn btn-warning"  data-bs-toggle="modal" data-bs-target="#Modaltwo"><i class="fa-solid fa-pen-to-square"></i> Editar</a>
+                            <a th:href="${produto.id}" type="button" class="btn btn-danger"><i class="fa-solid fa-square-minus"></i> Delete</a>
                         </td>
                     </tr>
                 </tbody>
@@ -49,15 +49,15 @@
             </div>
             <div class="modal-body">
               <form class="form-group" method="post">
-              <input class="form-control" type="text" name="produto" placeholder="Produto" aria-label="default input example">
-              <br>
-              <input class="form-control" type="text" name="nome" placeholder="Nome" aria-label="default input example">
-              <br>
-              <input class="form-control" type="text" name="descricao" placeholder="Descrição" aria-label="default input example">
-              <br>
-              <input class="form-control" type="text" name="preco" placeholder="R$" aria-label="default input example">
-              <br>
-              <button type="submit" class="btn btn-success" >Enviar</button>
+                <input class="form-control" type="text" name="produto" placeholder="Produto" aria-label="default input example">
+                <br>
+                <input class="form-control" type="text" name="nome" placeholder="Nome" aria-label="default input example">
+                <br>
+                <input class="form-control" type="text" name="descricao" placeholder="Descrição" aria-label="default input example">
+                <br>
+                <input class="form-control" type="text" name="preco" placeholder="R$" aria-label="default input example">
+                  <br>
+                  <button type="submit" class="btn btn-success" >Enviar</button>
             </form>
             </div>
           </div>

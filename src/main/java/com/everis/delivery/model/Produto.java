@@ -16,13 +16,10 @@ public class Produto {
     @Id @GeneratedValue(strategy =GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
     private String nomeProduto;
 
-    @NotBlank
     private String descricao;
 
-    @NotBlank
     private Double  preco;
 
     @Enumerated(EnumType.STRING)
