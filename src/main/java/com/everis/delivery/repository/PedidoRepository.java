@@ -1,2 +1,7 @@
-package com.everis.delivery.repository;public interface PedidoRepository {
+package com.everis.delivery.repository;
+
+import com.everis.delivery.model.Pedido;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface PedidoRepository extends JpaRepository<Pedido, Long> {
 }

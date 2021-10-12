@@ -50,13 +50,13 @@ public class AdminController {
         return "admin/editproduto";
     }
 
-    @PatchMapping("/produto/edit/{id}")
+    /*@PatchMapping("/produto/edit/{id}")
     public String saveproduto(ProdutoRequest request, Model model) {
         Produto produto = produtoRepository.getById(request.getId());
         produto = request.toProduto();
         produtoRepository.save(produto);
         return "redirect:/produto/editproduto";
-    }
+    }*/
 
     @GetMapping("pedidos")
     public String pedidos() {
