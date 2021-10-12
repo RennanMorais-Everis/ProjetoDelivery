@@ -27,6 +27,7 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
                     .anyRequest().authenticated()
                     .and()
                     .formLogin(form -> form
+                            .loginPage("/login")
                             .defaultSuccessUrl("/cardapio", true) // essa linha que vai resolver seu problema, ela define qual é a página padrão da sua aplicação, então sempre que você logar ele vai te direcionar para a /home
                             .permitAll()
                     ).logout(logout -> logout.logoutUrl("/logout")
