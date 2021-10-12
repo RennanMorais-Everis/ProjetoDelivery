@@ -1,16 +1,10 @@
 <th:block th:include="admin/partials/header"></th:block>
 
-    <div class="container">
-        <div class="row">
-          <div class="col-md-6 float-end text-end">
-            <div class="btn-group" role="group" aria-label="Basic example">
+        <div class="container">
+            <div class="d-flex justify-content-between mb-2">
+                <h2>Lista de Produtos</h2>
                 <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#Modalone"><i class="fa-solid fa-plus"></i> Adicionar</button>
-              </div>
-          </div>
-        </div>
-    <div>
-
-        <h2>Lista de Produtos</h2>
+            </div>
 
             <table class="table bg-white table-hover rounded shadow-sm text-center justify-content-center">
                 <thead class="table-dark">
@@ -31,13 +25,12 @@
                         <td>R$ <span th:text="${produto.preco}"></span></td>
                         <td>
                             <a th:href="@{/produto/edit/{id}(id=${produto.id})}" href="/produto/edit/" type="button" class="btn btn-warning"  data-bs-toggle="modal" data-bs-target="#Modaltwo"><i class="fa-solid fa-pen-to-square"></i> Editar</a>
-                            <a th:href="${produto.id}" type="button" class="btn btn-danger"><i class="fa-solid fa-square-minus"></i> Delete</a>
+                            <a th:href="@{/produto/delete/{id}(id=${produto.id})}" type="button" class="btn btn-danger"><i class="fa-solid fa-square-minus"></i> Delete</a>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
-    </div>
               
     <!-- Modal1 -->
       <div class="modal fade" id="Modalone" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -48,17 +41,30 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <form class="form-group" method="post">
-                <input class="form-control" type="text" name="produto" placeholder="Produto" aria-label="default input example">
-                <br>
-                <input class="form-control" type="text" name="nome" placeholder="Nome" aria-label="default input example">
-                <br>
-                <input class="form-control" type="text" name="descricao" placeholder="Descrição" aria-label="default input example">
-                <br>
-                <input class="form-control" type="text" name="preco" placeholder="R$" aria-label="default input example">
-                  <br>
-                  <button type="submit" class="btn btn-success" >Enviar</button>
-            </form>
+                <form action="/admin/produtos/add" method="POST">
+                    <div class="mb-3">
+                        <input class="form-control" type="text" name="nomeProduto" placeholder="Nome do produto" >
+                    </div>
+
+                    <div class="mb-3">
+                        <textarea class="form-control" name="descricao" placeholder="Descrição"></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <input class="form-control" type="text" name="preco" placeholder="R$">
+                    </div>
+
+                    <div class="mb-3">
+                        <select class="form-control form-control-sm" name="categoria">
+                            <option selected="selected" value="">Selecionar...</option>
+                            <option value="PIZZA">Pizza</option>
+                            <option value="ESFIHA">Esfiha</option>
+                            <option value="BEBIDA">Bebida</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-success" >Enviar</button>
+                </form>
             </div>
           </div>
         </div>

@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name = "carrinho")
+@Table(name = "pedidos")
 @Getter
 @Setter
 @ToString

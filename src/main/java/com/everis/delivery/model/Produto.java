@@ -5,6 +5,7 @@ import org.hibernate.Hibernate;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.math.BigDecimal;
 import java.util.Objects;
 
 @Entity
@@ -20,7 +21,7 @@ public class Produto {
 
     private String descricao;
 
-    private Double  preco;
+    private BigDecimal preco;
 
     @Enumerated(EnumType.STRING)
     private Categoria categoria;
