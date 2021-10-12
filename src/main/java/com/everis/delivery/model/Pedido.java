@@ -15,7 +15,7 @@ import java.util.Objects;
 @Setter
 @ToString
 @RequiredArgsConstructor
-public class Carrinho {
+public class Pedido {
 
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -46,8 +46,8 @@ public class Carrinho {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        Carrinho carrinho = (Carrinho) o;
-        return Objects.equals(id, carrinho.id);
+        Pedido pedido = (Pedido) o;
+        return Objects.equals(id, pedido.id);
     }
 
     @Override
