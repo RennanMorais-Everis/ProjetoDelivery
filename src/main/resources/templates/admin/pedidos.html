@@ -1,105 +1,38 @@
 <th:block th:include="admin/partials/header"></th:block>
 
-            <div class="container">
-                <div class="row">
-
-                    <div class="seedstarterlist" th:unless="${#lists.isEmpty(allSeedStarters)}">
-
-                        <h2 th:text="#{title.list}">Lista de Pedidos Finalizados</h2>
-
-                        <table class="table bg-white table-hover rounded shadow-sm text-center justify-content-center">
-                            <thead class="table-dark">
-                                <tr>
-                                    <th scope="col" th:text="#{seedstarter.rows}">Pedido</th>
-                                    <th scope="col" th:text="#{seedstarter.datePlanted}">Data</th>
-                                    <th scope="col" th:text="#{seedstarter.rows}">Nome</th>
-                                    <th scope="col" th:text="#{seedstarter.rows}">Telefone</th>
-                                    <th scope="col" th:text="#{seedstarter.type}">Detalhes</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr th:each="sb : ${allSeedStarters}">
-                                    <th scope="row" th:text="${rowStat.count}">001</th>
-                                    <td th:text="${{sb.datePlanted}}">13/01/2011</td>
-                                    <td th:text="${row.variety.name}">Felipe Freitas</td>
-                                    <td th:text="${row.seedsPerCell}">11 91234-1234</td>
-                                    <td th:text="#{|seedstarter.type.${sb.type}|}">
-                                        <!-- Button trigger modal -->
-                                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-                                            data-bs-target="#staticBackdrop">
-                                            Detalhes do Pedido
-                                        </button>
-                                    </td>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <div class="card-title fs-1">Pedidos Recebidos</div>
+            <h2 class="fs-5">Pedido de Renato Sanches</h2>
+            <h3 class="fs-6">Descrição</h3>
+            <ul class="list-inline">
+                <li>01 EVER CALABRESA</li>
+                <li>01 EVER ESFIHA </li>
+                <li>01 COCA-COLA 2L</li>
+            </ul>
+            <div class="dropdown">
+                <button class="btn btn-danger dropdown-toggle fs-3" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    ...
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item" href="#"><i class="fas fa-check"></i> Pedido Recebido</a></li>
+                    <li><a class="dropdown-item" href="#"><i class="fas fa-exclamation-triangle text-warning"></i> Pedido Enviado</a></li>
+                    <li><a class="dropdown-item" href="#"><i class="fas fa-check-double text-primary"></i> Pedido Finalizado</a></li>
+                </ul>
+                <br>
+                <br>
+                <h2 class="fs-6">Status do Pedido</h2>
+                <ul>
+                    <li class="list-group-item list-group-item-success"><i class="fas fa-check"></i> Pedido Recebido</li>
+                    <li class="list-group-item list-group-item-warning"><i class="fas fa-exclamation-triangle text-warning"></i> Pedido Enviado</li>
+                    <li class="list-group-item list-group-item-secondary"><i class="fas fa-check-double text-primary"></i> Pedido Finalizado</li>
+                </ul>
             </div>
 
-
-            <!-- Modal -->
-            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-                aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" th:text="#{title.list}" id="staticBackdropLabel">Detalhes do
-                                Pedido</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="seedstarterlist" th:unless="${#lists.isEmpty(allSeedStarters)}">
-                                <table class="table table-hover rounded shadow-sm">
-                                    <thead class="table-dark text-center justify-content-center">
-                                        <tr>
-                                            <th th:text="#{seedstarter.rows}">Nome</th>
-                                            <th th:text="#{seedstarter.features}">Endereço</th>
-                                            <th th:text="#{seedstarter.rows}">Quantd.</th>
-                                            <th th:text="#{seedstarter.type}">Descrição</th>
-                                            <th th:text="#{seedstarter.rows}">Preço</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr th:each="row,rowStat : ${sb.rows}, sb : ${allSeedStarters}">
-                                            <td th:text="${row.variety.name}">Felipe Freitas</td>
-                                            <td th:text="${#strings.arrayJoin(
-     #messages.arrayMsg(
-         #strings.arrayPrepend(sb.features,'seedstarter.feature.')),
-     ', ')}">Rua olamundo, nº infinity</td>
-                                            <td th:text="${rowStat.count}">1 , <br> 1, <br> 2</td>
-                                            <td th:text="#{|seedstarter.type.${sb.type}|}">Ever
-                                                Calabresa,<br>Coca-cola 2L <br>Ever Esfirra</td>
-                                            <td th:text="${rowStat.count}">35,00, <br> 10,00, <br> 10,00</td>
-                                        </tr>
-                                    </tbody>
-                                    <div class="col">
-                                        <thead>
-                                            <tr class="bg-dark text-white justify-content-end">
-                                                <th th:text="#{seedstarter.type}" class="text-end"> Forma de
-                                                    Pagamento:</th>
-                                                <th th:text="#{|seedstarter.type.${sb.type}|}" class="text-start">Cartão
-                                                    de Credito</th>
-                                                <th></th>
-                                                <th th:text="#{seedstarter.rows}" class="text-end">Total:</th>
-                                                <th th:text="${rowStat.count}" class="text-start">55,00</th>
-                                            </tr>
-                                    </div>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
-
-                        <script src="assets/js/bootstrap.bundle.js"></script>
-                        <script>
-                            var el = document.getElementById("wrapper");
-                            var toggleButton = document.getElementById("menu-toggle");
-
-                            toggleButton.onclick = function () {
-                                el.classList.toggle("toggled");
-                            };
-                        </script>
+        </div>
+    </div>
+</div>
 </body>
-
 
 </html>
