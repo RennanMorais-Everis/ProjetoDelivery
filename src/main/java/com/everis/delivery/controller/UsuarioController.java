@@ -1,7 +1,8 @@
 package com.everis.delivery.controller;
 
+import com.everis.delivery.dto.UsuariosRequest;
 import com.everis.delivery.model.Usuario;
-import com.everis.delivery.service.UsuarioService;
+import com.everis.delivery.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -11,21 +12,20 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.validation.Valid;
 
 @Controller
+@RequestMapping("usuario")
 public class UsuarioController {
 
     @Autowired
-    UsuarioService usuarioService;
+    UsuarioRepository usuarioRepository;
 
+    //Metodo de cadastro do usuario
     @RequestMapping(value = "/cadastrar", method = RequestMethod.POST)
-    public String newUser(@Valid Usuario usuario, BindingResult result, RedirectAttributes attributes) {
+    public String cadastro(@Valid UsuariosRequest request, BindingResult result, RedirectAttributes attributes) {
+        return "cadastro";
+    }
 
-        if(result.hasErrors()) {
-            attributes.addFlashAttribute("message", "Campos obrigatórios não preenchidos!");
-            return "redirect:/cardapio";
-        }
-
-        usuarioService.save(usuario);
-        return "redirect:/cardapio";
+    public String login() {
+        return "lofin";
     }
 
 }

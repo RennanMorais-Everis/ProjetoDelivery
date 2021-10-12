@@ -5,5 +5,5 @@ public enum TipoPagamento {
     A_VISTA,
     DEBITO,
     CREDITO,
-    REFEICAO;
+    REFEICAO
 }

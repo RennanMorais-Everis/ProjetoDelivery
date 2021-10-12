@@ -1,5 +1,4 @@
 :root {
-  --main-bg-color: green;
   --main-text-color: #262626;
   --second-text-color: #bbbec5;
   --second-bg-color: #30b92b;
@@ -126,7 +125,12 @@
     text-align: center;
 }
 
-#error {
+#messageError {
+    position: absolute;
+    top: 8%;
+}
+
+#messageSuccess {
     position: absolute;
     top: 8%;
 }

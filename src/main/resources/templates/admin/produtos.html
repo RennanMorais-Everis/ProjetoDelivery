@@ -1,0 +1,84 @@
+<th:block th:include="admin/partials/header"></th:block>
+
+        <div class="container">
+            <div class="d-flex justify-content-between mb-2">
+                <h2>Lista de Produtos</h2>
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#Modalone"><i class="fa-solid fa-plus"></i> Adicionar</button>
+            </div>
+
+            <table class="table bg-white table-hover rounded shadow-sm text-center justify-content-center">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">Produto</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Descrição</th>
+                        <th scope="col">Preço</th>
+                        <th scope="col">Ações</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="produto : ${produtos}">
+                        <th scope="row" th:text="${produto.categoria}"></th>
+                        <td th:text="${produto.nomeProduto}"></td>
+                        <td th:text="${produto.descricao}"></td>
+                        <td>R$ <span th:text="${produto.preco}"></span></td>
+                        <td>
+                            <a th:href="@{/admin/produto/edit/{id}(id=${produto.id})}" class="btn btn-warning" ><i class="fa-solid fa-pen-to-square"></i> Editar</a>
+                            <a th:href="@{/admin/produto/delete/{id}(id=${produto.id})}"  class="btn btn-danger"><i class="fa-solid fa-square-minus"></i> Delete</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+              
+    <!-- Modal1 -->
+      <div class="modal fade" id="Modalone" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Adicionar Produtos</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/admin/produtos/add" method="POST">
+                    <div class="mb-3">
+                        <input class="form-control" type="text" name="nomeProduto" placeholder="Nome do produto" >
+                    </div>
+
+                    <div class="mb-3">
+                        <textarea class="form-control" name="descricao" placeholder="Descrição"></textarea>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">R$</span>
+                        <input class="form-control money-mask" type="text" name="preco">
+                    </div>
+
+                    <div class="mb-3">
+                        <select class="form-control form-control-sm" name="categoria">
+                            <option selected="selected" value="">Selecionar...</option>
+                            <option value="PIZZA">Pizza</option>
+                            <option value="ESFIHA">Esfiha</option>
+                            <option value="BEBIDA">Bebida</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-success" >Enviar</button>
+                </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <script src="assets/js/bootstrap.bundle.js"></script>
+    <script>
+        var el = document.getElementById("wrapper");
+        var toggleButton = document.getElementById("menu-toggle");
+
+        toggleButton.onclick = function () {
+            el.classList.toggle("toggled");
+        };
+    </script>
+</body>
+
+</html>

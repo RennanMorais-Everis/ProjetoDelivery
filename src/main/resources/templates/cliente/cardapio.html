@@ -1,0 +1,19 @@
+<th:block th:include="cliente/partials/header"></th:block>
+
+  <div class="container">
+    <section class="items">
+      <div class="card item" th:each="produto : ${produtos}">
+        <img src="assets/media/images/pizza.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><span th:text="${produto.nomeProduto}"></span></h5>
+          <p class="card-text"><span th:text="${produto.descricao}"></span></p>
+          <p class="card-text">R$ <span th:text="${produto.preco}"></span></p>
+        </div>
+        <div class="card-body">
+          <a href="#" class="card-link btn btn-success">Adicionar á sacola</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+<th:block th:include="cliente/partials/footer"></th:block>
