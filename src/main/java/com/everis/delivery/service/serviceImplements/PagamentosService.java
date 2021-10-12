@@ -2,6 +2,8 @@ package com.everis.delivery.service.serviceImplements;
 
 import com.everis.delivery.model.Conta;
 import com.everis.delivery.model.Pagamento;
+import com.everis.delivery.repository.ContasRepository;
+import com.everis.delivery.repository.PagamentosRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,12 +11,12 @@ import org.springframework.stereotype.Service;
 
 
 @Service
-    public class PagamentoService {
+    public class PagamentosService {
 
         @Autowired
-        private com.everis.delivery.repository.PagamentoRepository pagamentoRepository;
+        private PagamentosRepository pagamentoRepository;
         @Autowired
-        private com.everis.delivery.repository.ContaRepository contaRepository;
+        private ContasRepository contaRepository;
 
     public ResponseEntity<Pagamento> pagamentoComanda(Integer origem, Integer destino, double valor) {
             // busca se conta de origem existe e traz o saldo

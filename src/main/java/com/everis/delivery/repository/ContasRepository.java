@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 @NoRepositoryBean
-public interface ContaRepository extends CrudRepository<Conta, Integer> {
+public interface ContasRepository extends CrudRepository<Conta, Integer> {
 
 
     Conta findbyId(Integer origem);

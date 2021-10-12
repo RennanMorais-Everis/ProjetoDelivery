@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 @NoRepositoryBean
-public interface PagamentoRepository extends CrudRepository<Pagamento, Integer> {
+public interface PagamentosRepository extends CrudRepository<Pagamento, Integer> {
 
     Pagamento findbyId(Integer idPagamento);
 }
