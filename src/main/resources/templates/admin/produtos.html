@@ -24,8 +24,8 @@
                         <td th:text="${produto.descricao}"></td>
                         <td>R$ <span th:text="${produto.preco}"></span></td>
                         <td>
-                            <a th:href="@{/produto/edit/{id}(id=${produto.id})}" href="/produto/edit/" type="button" class="btn btn-warning"  data-bs-toggle="modal" data-bs-target="#Modaltwo"><i class="fa-solid fa-pen-to-square"></i> Editar</a>
-                            <a th:href="@{/produto/delete/{id}(id=${produto.id})}" type="button" class="btn btn-danger"><i class="fa-solid fa-square-minus"></i> Delete</a>
+                            <a th:href="@{/admin/produto/edit/{id}(id=${produto.id})}" class="btn btn-warning" ><i class="fa-solid fa-pen-to-square"></i> Editar</a>
+                            <a th:href="@{/admin/produto/delete/{id}(id=${produto.id})}"  class="btn btn-danger"><i class="fa-solid fa-square-minus"></i> Delete</a>
                         </td>
                     </tr>
                 </tbody>
@@ -50,8 +50,9 @@
                         <textarea class="form-control" name="descricao" placeholder="Descrição"></textarea>
                     </div>
 
-                    <div class="mb-3">
-                        <input class="form-control" type="text" name="preco" placeholder="R$">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">R$</span>
+                        <input class="form-control money-mask" type="text" name="preco">
                     </div>
 
                     <div class="mb-3">

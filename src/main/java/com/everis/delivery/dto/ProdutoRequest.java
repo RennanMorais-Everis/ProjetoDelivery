@@ -17,8 +17,9 @@ public class ProdutoRequest {
     @NotBlank
     private String descricao;
 
+    //Preço sera recebido como String para ser convertido na função toProduto alterando para BigDecimal
     @NotBlank
-    private BigDecimal preco;
+    private String preco;
 
     @NotBlank
     private Categoria categoria;
@@ -27,8 +28,15 @@ public class ProdutoRequest {
         Produto produto = new Produto();
         produto.setNomeProduto(nomeProduto);
         produto.setDescricao(descricao);
-        /*produto.setPreco(new BigDecimal(String.valueOf(preco));*//*
-        produto.setCategoria();*/
+
+        //Convertendo o valor de preço para String para ser enviado como BigDecimal
+        preco = preco.replaceAll(",", ".");
+        produto.setPreco(new BigDecimal(preco));
+
+        //Convertendo categoria para Enum
+        Categoria cat = categoria;
+        produto.setCategoria(cat);
+
         return produto;
     }
 }

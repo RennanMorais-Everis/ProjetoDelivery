@@ -7,13 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.bind.annotation.*;
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 @RequestMapping("admin")
@@ -43,15 +38,29 @@ public class AdminController {
         return "redirect:/admin/produtos";
     }
 
-   /* @GetMapping("/produto/delete/{id}")
+    /*@GetMapping("/produto/delete/{id}")
     public String removerProduto(@PathVariable("id") Long id, Model model) {
-        Optional<Produto> produto = produtoRepository.findById(id);
-        produtoRepository.delete(produto);
         return "redirect:/admin/produtos";
     }*/
 
-    /*@GetMapping("/produto/edit/{id}")
+    @GetMapping("/produto/edit/{id}")
     public String editProduto(@PathVariable("id") Long id, Model model) {
-        return "admin/edit";
-    }*/
+        Produto produto = produtoRepository.getById(id);
+        model.addAttribute("produto", produto);
+        return "admin/editproduto";
+    }
+
+    @PatchMapping("/produto/edit/{id}")
+    public String saveproduto(ProdutoRequest request, Model model) {
+        Produto produto = produtoRepository.getById(request.getId());
+        produto = request.toProduto();
+        produtoRepository.save(produto);
+        return "redirect:/produto/editproduto";
+    }
+
+    @GetMapping("pedidos")
+    public String pedidos() {
+        return "admin/pedidos";
+    }
+
 }
