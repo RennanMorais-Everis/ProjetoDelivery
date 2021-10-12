@@ -1,6 +1,7 @@
 $( document ).ready(function() {
     showLogin();
     showCadastro();
+    showMask();
 });
 
 function showLogin() {
@@ -20,5 +21,11 @@ function showCadastro() {
 
     $("#cad-close").click(function() {
         $('.cadastro-modal').hide('fast');
+    });
+}
+
+function showMask() {
+    $(".money-field").mask('000.000.000.000.000,00', {
+        reverse: true
     });
 }

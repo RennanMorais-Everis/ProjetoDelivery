@@ -27,8 +27,16 @@ public class ProdutoRequest {
         Produto produto = new Produto();
         produto.setNomeProduto(nomeProduto);
         produto.setDescricao(descricao);
-        /*produto.setPreco(new BigDecimal(String.valueOf(preco));*//*
-        produto.setCategoria();*/
+
+        //Alterando valor pára BigDecimal para ser salvo no banco
+        String big = String.valueOf(preco);
+        produto.setPreco(new BigDecimal(big));
+
+        //Convertendo String do formulario em Enum
+        Categoria cat = categoria;
+        produto.setCategoria(cat);
+
+
         return produto;
     }
 }
