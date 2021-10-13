@@ -5,42 +5,37 @@ import lombok.*;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 
 @Entity
 @Table(name = "pedidos")
-@Getter
-@Setter
-@ToString
-@RequiredArgsConstructor
+@Data
 public class Pedido {
 
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne //Um Carrinho para um cliente
+    @OneToOne //Um Pedido para um cliente
     private Usuario cliente;
 
-    @OneToMany
-    @ToString.Exclude//um carrinho para varios produtos
+    @OneToMany//um carrinho para varios produtos
     private List<Produto> produto;
-
-    @Enumerated(EnumType.STRING)
-    private StatusPedido statusPedido;
 
     @Enumerated(EnumType.STRING)
     private TipoPagamento tipoPagamento;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern =  "dd-MM-yyyy HH-mm") //formato de data
+    @Enumerated(EnumType.STRING)
+    private StatusPedido statusPedido;
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern =  "dd-MM-yyyy") //Formatando data para Json
     private LocalDateTime dataCriacao = LocalDateTime.now();
 
-    private double subTotal;
-    private double frete;
-    private double total;
-    private Boolean validaPedido = false;
+    private BigDecimal frete;
+    private BigDecimal total;
 
     @Override
     public boolean equals(Object o) {

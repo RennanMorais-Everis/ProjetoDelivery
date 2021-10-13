@@ -1,4 +1,4 @@
-package com.everis.delivery.configuration;
+/*package com.everis.delivery.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -46,7 +46,7 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
             return new InMemoryUserDetailsManager(user);
         }
 
-    }
+    }*/
 /**
  *  WebSecurityConfigurerAdapter, ele está dentro do próprio Spring Security, ou seja, é uma classe que
  *  vai nos ajudar a integrar nossa aplicação com Spring Security e ele também nos oferece uma anotação
