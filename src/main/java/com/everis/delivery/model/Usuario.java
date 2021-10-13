@@ -2,19 +2,24 @@ package com.everis.delivery.model;
 
 import lombok.*;
 import org.hibernate.Hibernate;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import java.util.List;
 import java.util.Objects;
 
 
 @Entity
 @Table(name = "usuarios")
 @Data
+@ToString
+@RequiredArgsConstructor
 public class Usuario {
 
     @Id @GeneratedValue (strategy =GenerationType.IDENTITY)
     private Long id;
 
-    private String nomeUsuario;
+    private String nome;
 
     private String cpf;
 
@@ -30,6 +35,9 @@ public class Usuario {
 
     @Enumerated(EnumType.STRING)
     private NivelAcesso nivel = NivelAcesso.NORMAL;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cliente", fetch= FetchType.LAZY)
+    private List<Pedido> pedido;
 
     @Override
     public boolean equals(Object o) {
