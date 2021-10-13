@@ -1,8 +1,11 @@
 package com.everis.delivery.dto;
 
 import com.everis.delivery.model.Usuario;
+import lombok.Data;
+
 import javax.validation.constraints.NotBlank;
 
+@Data
 public class UsuariosRequest {
 
     @NotBlank

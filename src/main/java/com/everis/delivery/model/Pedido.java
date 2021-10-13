@@ -19,10 +19,11 @@ public class Pedido {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne //Um Pedido para um cliente
+
+    @ManyToOne(fetch = FetchType.LAZY)
     private Usuario cliente;
 
-    @OneToMany//um carrinho para varios produtos
+    @OneToMany(mappedBy = "pedido")
     private List<Produto> produto;
 
     @Enumerated(EnumType.STRING)

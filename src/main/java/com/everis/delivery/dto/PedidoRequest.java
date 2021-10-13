@@ -2,12 +2,15 @@ package com.everis.delivery.dto;
 
 import com.everis.delivery.model.*;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.Data;
+
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
+@Data
 public class PedidoRequest {
 
     private Long id;
