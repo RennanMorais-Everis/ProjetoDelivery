@@ -3,6 +3,9 @@
         <div class="container">
             <div class="d-flex justify-content-between mb-2">
                 <h2>Lista de Produtos</h2>
+                <div class="alert alert-danger" th:if="${not #strings.isEmpty(message)}">
+                    <h6 th:text="$${message}"></h6>
+                </div>
                 <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#Modalone"><i class="fa-solid fa-plus"></i> Adicionar</button>
             </div>
 

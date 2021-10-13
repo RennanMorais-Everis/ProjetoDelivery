@@ -24,8 +24,25 @@ public class ProdutoRequest {
     @NotBlank
     private Categoria categoria;
 
-    public Produto toProduto() {
+
+    //Metodos para integração com banco de dados
+    public Produto addProduto() {
         Produto produto = new Produto();
+        produto.setNomeProduto(nomeProduto);
+        produto.setDescricao(descricao);
+
+        //Convertendo o valor de preço para String para ser enviado como BigDecimal
+        preco = preco.replaceAll(",", ".");
+        produto.setPreco(new BigDecimal(preco));
+
+        //Convertendo categoria para Enum
+        Categoria cat = categoria;
+        produto.setCategoria(cat);
+
+        return produto;
+    }
+
+    public Produto update(Produto produto) {
         produto.setNomeProduto(nomeProduto);
         produto.setDescricao(descricao);
 

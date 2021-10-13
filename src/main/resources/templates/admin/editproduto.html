@@ -3,7 +3,7 @@
     <div class="card">
         <div class="card-body">
             <h5 class="card-title">Editar Produtos</h5>
-            <form action="/admin/produto/edit/save" method="PATCH">
+            <form action="/admin/produto/edit/save" method="POST">
                 <input type="text" name="id" th:value="${produto.id}" hidden>
                 <div class="mb-3">
                     <input th:value="${produto.nomeProduto}"  class="form-control" type="text" name="nomeProduto" placeholder="Nome do produto" >
@@ -13,7 +13,7 @@
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text">R$</span>
-                    <input th:value="${produto.preco}" class="form-control" type="text" name="preco" placeholder="R$">
+                    <input th:value="${produto.preco}" class="form-control money-mask" type="text" name="preco" placeholder="R$">
                 </div>
                 <div class="mb-3">
                     <select class="form-control form-control-sm" name="categoria">
