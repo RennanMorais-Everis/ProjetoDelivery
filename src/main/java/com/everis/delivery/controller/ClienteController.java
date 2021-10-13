@@ -9,10 +9,7 @@ import com.everis.delivery.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -50,9 +47,15 @@ public class ClienteController {
     }
 
     @PostMapping("/newpedido/teste")
-    @ResponseBody
-    public Pedido addPedido(PedidoRequest request) {
+    public String addPedido(PedidoRequest request, @RequestParam("produtos") List<Produto> produtos) {
+        request.setProduto(produtos);
         Pedido pedido = request.addPedido();
-        return pedido;
+        pedidoRepository.save(pedido);
+        return "cliente/cardapio";
+    }
+
+    @GetMapping("/sobre")
+    public String sobre() {
+        return "cliente/sobre";
     }
 }

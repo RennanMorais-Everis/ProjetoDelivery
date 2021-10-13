@@ -1,9 +1,14 @@
 package com.everis.delivery.dto;
 
 import com.everis.delivery.model.Usuario;
+import lombok.Data;
+
 import javax.validation.constraints.NotBlank;
 
+@Data
 public class UsuariosRequest {
+
+    private Long id;
 
     @NotBlank
     private String nome;
@@ -27,10 +32,11 @@ public class UsuariosRequest {
     private String senha;
 
 
-    public Usuario cadastro() {
+    public Usuario toUsuario() {
 
         Usuario usuario = new Usuario();
-        usuario.setNome(nome);
+
+        usuario.setNomeUsuario(nome);
         usuario.setCpf(cpf);
         usuario.setEmail(email);
         usuario.setCep(cep);

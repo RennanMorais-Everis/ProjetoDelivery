@@ -9,14 +9,14 @@
             <form action="/newpedido/teste" method="POST">
                 <div class="input-group mb-3">
                     <span class="input-group-text">Selecione os produtos</span>
-                    <select class="form-select" multiple>
-                        <option th:each="produto : ${produtos}" th:value="${produto.id}" th:text="${produto.nomeProduto}"></option>
+                    <select class="form-select" multiple name="produtos">
+                        <option th:each="produto : ${produtos}" th:value="${produto.id}" th:text="${produto.nomeProduto + ' - ' + produto.descricao + ' - R$' + produto.preco}"></option>
                     </select>
                 </div>
 
                 <div class="input-group mb-3">
                     <span class="input-group-text">Tipo de pagamento</span>
-                    <select class="form-select">
+                    <select class="form-select" name="tipoPagamento">
                         <option th:each="tipo : ${tipoPagamentos}" th:value="${tipo}" th:text="${tipo}"></option>
                     </select>
                 </div>

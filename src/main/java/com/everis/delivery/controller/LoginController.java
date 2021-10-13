@@ -5,9 +5,9 @@ import com.everis.delivery.model.Usuario;
 import com.everis.delivery.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class LoginController {
@@ -26,9 +26,16 @@ public class LoginController {
     }
 
     @PostMapping("/cadastrar")
-    public String newCadastro(UsuariosRequest request, BindingResult resultS) {
-        Usuario usuario = request.cadastro();
+    public String newCadastro(UsuariosRequest request, RedirectAttributes attributes) {
+        Usuario usuario = request.toUsuario();
+
+        /*if() {
+            attributes.addFlashAttribute("message", "Já existe um usuário com o e-mail cadasstrado!");
+            return "redirect:/cadastrar";
+        }*/
+
         usuarioRepository.save(usuario);
+
         return "redirect:/cardapio";
     }
 }

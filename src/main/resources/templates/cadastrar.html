@@ -24,7 +24,11 @@
                         <h4>Cadastrar-se</h4>
                     </div>
 
-                    <form method="POST" action="/cadastrar">
+                    <div class="d-flex justify-content-center"  th:if="${not #strings.isEmpty(message)}">
+                        <span class="alert alert-danger" th:text="${message}"></span>
+                    </div>
+
+                    <form action="/cadastrar" method="POST">
                         <div class="input-group mb-3">
                             <span class="input-group-text">Nome</span>
                             <input class="form-control" type="text" name="nome" placeholder="Digite o seu nome">

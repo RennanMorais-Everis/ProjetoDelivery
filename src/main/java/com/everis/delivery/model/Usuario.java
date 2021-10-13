@@ -2,24 +2,19 @@ package com.everis.delivery.model;
 
 import lombok.*;
 import org.hibernate.Hibernate;
-
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import java.util.Objects;
 
 
 @Entity
 @Table(name = "usuarios")
-@Getter
-@Setter
-@ToString
-@RequiredArgsConstructor
+@Data
 public class Usuario {
 
     @Id @GeneratedValue (strategy =GenerationType.IDENTITY)
     private Long id;
 
-    private String nome;
+    private String nomeUsuario;
 
     private String cpf;
 
