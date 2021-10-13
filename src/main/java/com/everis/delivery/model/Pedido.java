@@ -23,14 +23,14 @@ public class Pedido {
     @ManyToOne(fetch = FetchType.LAZY)
     private Usuario cliente;
 
-    @OneToMany(mappedBy = "pedido")
+    @ManyToMany
     private List<Produto> produto;
 
     @Enumerated(EnumType.STRING)
     private TipoPagamento tipoPagamento;
 
     @Enumerated(EnumType.STRING)
-    private StatusPedido statusPedido;
+    private StatusPedido statusPedido = StatusPedido.PENDENTE;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING,pattern =  "dd-MM-yyyy") //Formatando data para Json
     private LocalDateTime dataCriacao = LocalDateTime.now();

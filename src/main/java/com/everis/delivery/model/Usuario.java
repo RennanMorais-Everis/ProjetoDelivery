@@ -2,9 +2,7 @@ package com.everis.delivery.model;
 
 import lombok.*;
 import org.hibernate.Hibernate;
-
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import java.util.List;
 import java.util.Objects;
 
@@ -12,7 +10,6 @@ import java.util.Objects;
 @Entity
 @Table(name = "usuarios")
 @Data
-@ToString
 @RequiredArgsConstructor
 public class Usuario {
 

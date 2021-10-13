@@ -36,7 +36,7 @@ public class UsuariosRequest {
 
         Usuario usuario = new Usuario();
 
-        usuario.setNomeUsuario(nome);
+        usuario.setNome(nome);;
         usuario.setCpf(cpf);
         usuario.setEmail(email);
         usuario.setCep(cep);

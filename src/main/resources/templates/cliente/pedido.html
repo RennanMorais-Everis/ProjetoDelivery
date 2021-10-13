@@ -1,0 +1,33 @@
+<th:block th:include="cliente/partials/header"></th:block>
+
+<div class="container">
+
+    <h4>Faça seu pedido</h4>
+
+    <div class="card">
+        <div class="card-body">
+            <form action="/newpedido" method="POST">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">Selecione os produtos</span>
+                    <span th:text="${pedido}"></span>
+                    <select class="form-select" multiple name="produtos">
+                        <option th:each="produto : ${produtos}"  th:value="${produto.id}" th:text="${produto.nomeProduto + ' - ' + produto.descricao + ' - R$' + produto.preco}"></option>
+                    </select>
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text">Tipo de pagamento</span>
+                    <select class="form-select" name="tipoPagamento">
+                        <option th:each="tipo : ${tipoPagamentos}" th:value="${tipo}" th:text="${tipo}"></option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-info">Proximo</button>
+
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<th:block th:include="cliente/partials/footer"></th:block>

@@ -46,12 +46,25 @@ public class ClienteController {
         return "cliente/novoPedido";
     }
 
-    @PostMapping("/newpedido/teste")
-    public String addPedido(PedidoRequest request, @RequestParam("produtos") List<Produto> produtos) {
+    @PostMapping("/newpedido")
+    public String addPedido(PedidoRequest request, @RequestParam("produtos") List<Produto> produtos, Model model) {
+
         request.setProduto(produtos);
         Pedido pedido = request.addPedido();
         pedidoRepository.save(pedido);
-        return "cliente/cardapio";
+
+        Pedido p = pedidoRepository.getById(pedido.getId());
+        List<Produto> listProduto = pedido.getProduto();
+
+        model.addAttribute("pedidos", p);
+        model.addAttribute("produtosPedido", listProduto);
+
+        return "redirect:/newpedido/pedido";
+    }
+
+    @GetMapping("/newpedido/pedido")
+    public String newPedido() {
+        return "cliente/pedido";
     }
 
     @GetMapping("/sobre")

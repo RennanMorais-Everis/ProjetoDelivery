@@ -38,18 +38,6 @@ public class AdminController {
         return "redirect:/admin/produtos";
     }
 
-    @GetMapping("/produto/delete/{id}")
-    public String removerProduto(@PathVariable("id") Long id, Model model) {
-        Produto produto = produtoRepository.getById(id);
-
-        if(produto != null) {
-            produtoRepository.delete(produto);
-            return "redirect:/admin/produtos";
-        }
-
-        return "redirect:/admin/produtos";
-    }
-
     @GetMapping("/produto/edit/{id}")
     public String editProduto(@PathVariable("id") Long id, Model model) {
         Produto produto = produtoRepository.getById(id);
@@ -62,6 +50,18 @@ public class AdminController {
         Produto produto = produtoRepository.getById(request.getId());
         produto = request.update(produto);
         produtoRepository.save(produto);
+        return "redirect:/admin/produtos";
+    }
+
+    @GetMapping("/produto/delete/{id}")
+    public String removerProduto(@PathVariable("id") Long id, Model model) {
+        Produto produto = produtoRepository.getById(id);
+
+        if(produto != null) {
+            produtoRepository.delete(produto);
+            return "redirect:/admin/produtos";
+        }
+
         return "redirect:/admin/produtos";
     }
 

@@ -26,9 +26,6 @@ public class Produto {
     @Enumerated(EnumType.STRING)
     private Categoria categoria;
 
-    @ManyToOne
-    private  Pedido pedido;
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
