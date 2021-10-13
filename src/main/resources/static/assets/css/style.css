@@ -46,7 +46,7 @@
     align-items: center;
 }
 
-.login-area button {
+.login-area a {
     margin-right: 10px;
 }
 
@@ -135,8 +135,14 @@
     top: 8%;
 }
 
+.login-body {
+    background-image: url("http://localhost:8080/assets/media/images/background.jpg");
+}
 
-
+.login-box {
+    width:100%;
+    max-width:500px;
+}
 ---------------------------------------------------
 
 <! ----- style1 ---->

@@ -1,0 +1,72 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ever Pizzas - Cadastro</title>
+    <link rel="stylesheet" href="http://localhost:8080/assets/css/style.css">
+    <link rel="stylesheet" href="http://localhost:8080/assets/css/bootstrap.min.css">
+    <script src="http://localhost:8080/assets/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/44922e80c2.js" crossorigin="anonymous"></script>
+    <script src="http://localhost:8080/assets/js/jquery-3.6.0.min.js"></script>
+    <script src="http://localhost:8080/assets/js/script.js"></script>
+
+</head>
+<body class="login-body">
+
+    <div class="container d-flex justify-content-center align-items-center h-100">
+        <div class="login-box">
+            <div class="card">
+                <div class="card-body">
+
+                    <div class="login-img d-flex justify-content-center">
+                        <h4>Cadastrar-se</h4>
+                    </div>
+
+                    <form method="POST" action="/cadastrar">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Nome</span>
+                            <input class="form-control" type="text" name="nome" placeholder="Digite o seu nome">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">CPF</span>
+                            <input class="form-control" type="text" name="cpf" placeholder="Digite o seu CPF">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">E-mail</span>
+                            <input class="form-control" type="email" name="email" placeholder="Digite o seu e-mail">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">CEP</span>
+                            <input class="form-control" type="text" name="cep" placeholder="Digite o seu CEP">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Endereço</span>
+                            <input class="form-control" type="text" name="endereco" placeholder="Digite o seu endereço">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Nº</span>
+                            <input class="form-control" type="text" name="numero" placeholder="Número">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Senha</span>
+                            <input class="form-control" type="password" name="senha" placeholder="Digite uma senha">
+                        </div>
+
+                        <button type="submit" class="btn btn-success">Cadastrar</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
