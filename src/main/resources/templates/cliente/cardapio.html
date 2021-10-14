@@ -1,27 +1,28 @@
 
 <th:block th:include="cliente/partials/header"></th:block>
 
+<div class="container">
+  <h5>Pizzas</h5>
   <section class ='items'>
-     <h3>Pizzas</h3>
-          <div class="container">
-            <section class="items">
-              <div class="card item" th:each="pizza : ${pizzas}">
-                <img src="assets/media/images/pizza.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title"><span th:text="${pizza.nomeProduto}"></span></h5>
-                  <p class="card-text"><span th:text="${pizza.descricao}"></span></p>
-                  <p class="card-text">R$ <span th:text="${pizza.preco}"></span></p>
-                </div>
-                <div class="card-body">
-                  <a href="/newpedido" class="card-link btn btn-info">Fazer pedido</a>
-                </div>
-              </div>
-            </section>
+    <div class="container">
+      <section class="items">
+        <div class="card item" th:each="pizza : ${pizzas}">
+          <img src="assets/media/images/pizza.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title"><span th:text="${pizza.nomeProduto}"></span></h5>
+            <p class="card-text"><span th:text="${pizza.descricao}"></span></p>
+            <p class="card-text">R$ <span th:text="${pizza.preco}"></span></p>
           </div>
+          <div class="card-body">
+            <a href="/newpedido" class="card-link btn btn-info">Fazer pedido</a>
+          </div>
+        </div>
+      </section>
+    </div>
   </section>
 
+  <h5>Esfiha</h5>
   <section class ='items'>
-    <h3>Esfiha</h3>
     <div class="container">
       <section class="items">
         <div class="card item" th:each="esfiha : ${esfihas}">
@@ -39,24 +40,24 @@
     </div>
   </section>
 
+  <h5>Bebida</h5>
   <section class ='items'>
-      <h3>      Bebida</h3>
-      <div class="container">
-        <section class="items">
-          <div class="card item" th:each="bebida : ${bebidas}">
-            <img src="assets/media/images/refrigerante.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title"><span th:text="${bebida.nomeProduto}"></span></h5>
-              <p class="card-text"><span th:text="${bebida.descricao}"></span></p>
-              <p class="card-text">R$ <span th:text="${bebida.preco}"></span></p>
-            </div>
-            <div class="card-body">
-              <a href="/newpedido" class="card-link btn btn-info">Fazer pedido</a>
-            </div>
+    <div class="container">
+      <section class="items">
+        <div class="card item" th:each="bebida : ${bebidas}">
+          <img src="assets/media/images/refrigerante.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title"><span th:text="${bebida.nomeProduto}"></span></h5>
+            <p class="card-text"><span th:text="${bebida.descricao}"></span></p>
+            <p class="card-text">R$ <span th:text="${bebida.preco}"></span></p>
           </div>
-        </section>
-      </div>
+          <div class="card-body">
+            <a href="/newpedido" class="card-link btn btn-info">Fazer pedido</a>
+          </div>
+        </div>
+      </section>
+    </div>
   </section>
-
+</div>
 
 <th:block th:include="cliente/partials/footer"></th:block>
