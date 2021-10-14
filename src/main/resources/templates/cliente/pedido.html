@@ -36,7 +36,7 @@
 
                 <input type="text" name="total" hidden th:value="${#aggregates.sum(pedido.produto.![preco])}">
 
-                <button type="submit" class="btn btn-info">Enviar Pedido</button>
+                <button type="submit" class="btn btn-info" onclick="alertpedido()">Enviar Pedido</button>
 
             </form>
         </div>
@@ -45,3 +45,9 @@
 </div>
 
 <th:block th:include="cliente/partials/footer"></th:block>
+
+<script>
+    function alertpedido() {
+       alert("Pedido Enviado com Sucesso!!")
+    }
+</script>
