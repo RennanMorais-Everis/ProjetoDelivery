@@ -1,13 +1,44 @@
 <th:block th:include="cliente/partials/header"></th:block>
 
   <div class="container">
+    <h3>Pizzas</h3>
     <section class="items">
-      <div class="card item" th:each="produto : ${produtos}">
+      <div class="card item" th:each="pizza : ${pizzas}">
         <img src="assets/media/images/pizza.jpg" class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title"><span th:text="${produto.nomeProduto}"></span></h5>
-          <p class="card-text"><span th:text="${produto.descricao}"></span></p>
-          <p class="card-text">R$ <span th:text="${produto.preco}"></span></p>
+          <h5 class="card-title"><span th:text="${pizza.nomeProduto}"></span></h5>
+          <p class="card-text"><span th:text="${pizza.descricao}"></span></p>
+          <p class="card-text">R$ <span th:text="${pizza.preco}"></span></p>
+        </div>
+        <div class="card-body">
+          <a href="/newpedido" class="card-link btn btn-info">Fazer pedido</a>
+        </div>
+      </div>
+    </section>
+
+    <h3>Esfihas</h3>
+    <section class="items">
+      <div class="card item" th:each="esfiha : ${esfihas}">
+        <img src="assets/media/images/esfiha.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><span th:text="${esfiha.nomeProduto}"></span></h5>
+          <p class="card-text"><span th:text="${esfiha.descricao}"></span></p>
+          <p class="card-text">R$ <span th:text="${esfiha.preco}"></span></p>
+        </div>
+        <div class="card-body">
+          <a href="/newpedido" class="card-link btn btn-info">Fazer pedido</a>
+        </div>
+      </div>
+    </section>
+
+    <h3>Bebidas</h3>
+    <section class="items">
+      <div class="card item" th:each="bebida : ${bebidas}">
+        <img src="assets/media/images/pizza.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><span th:text="${bebida.nomeProduto}"></span></h5>
+          <p class="card-text"><span th:text="${bebida.descricao}"></span></p>
+          <p class="card-text">R$ <span th:text="${bebida.preco}"></span></p>
         </div>
         <div class="card-body">
           <a href="/newpedido" class="card-link btn btn-info">Fazer pedido</a>

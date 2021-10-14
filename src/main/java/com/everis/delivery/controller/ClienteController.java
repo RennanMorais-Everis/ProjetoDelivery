@@ -1,10 +1,7 @@
 package com.everis.delivery.controller;
 
 import com.everis.delivery.dto.PedidoRequest;
-import com.everis.delivery.model.Pedido;
-import com.everis.delivery.model.Produto;
-import com.everis.delivery.model.StatusPedido;
-import com.everis.delivery.model.TipoPagamento;
+import com.everis.delivery.model.*;
 import com.everis.delivery.repository.PedidoRepository;
 import com.everis.delivery.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,8 +27,12 @@ public class ClienteController {
 
     @GetMapping("/cardapio")
     public String cardapio(Model model) {
-        List<Produto> produtos = produtoRepository.findAll();
-        model.addAttribute("produtos", produtos);
+        List<Produto> pizzas = produtoRepository.findByCategoria(Categoria.PIZZA); //metodo findByCategoria a palavra Categoria identifica a coluna da tabela produtos não necessitando realizar uma query
+        List<Produto> esfihas = produtoRepository.findByCategoria(Categoria.ESFIHA);
+        List<Produto> bebidas = produtoRepository.findByCategoria(Categoria.BEBIDA);
+        model.addAttribute("pizzas", pizzas);
+        model.addAttribute("esfihas", esfihas);
+        model.addAttribute("bebidas", bebidas);
         return "cliente/cardapio";
     }
 

@@ -30,7 +30,6 @@ public class AdminController {
     public String admin(Model model) {
         long countProdutos = produtoRepository.count();
         List<Pedido> pedidos = pedidoRepository.findAllByStatusPedido(StatusPedido.APROVADO);
-
         Long countPedidos = pedidoRepository.count();
 
         model.addAttribute("countProdutos", countProdutos);
@@ -82,6 +81,7 @@ public class AdminController {
 
     @GetMapping("/pedidos")
     public String pedidos() {
+        List<Pedido> pedidos = pedidoRepository.findAllByStatusPedido(StatusPedido.CONCLUIDO);
         return "admin/pedidos";
     }
 

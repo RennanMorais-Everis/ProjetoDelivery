@@ -3,9 +3,9 @@
         <div class="container">
             <div class="d-flex justify-content-between mb-2">
                 <h2>Lista de Produtos</h2>
-                <div class="alert alert-danger" th:if="${not #strings.isEmpty(message)}">
+                <!--<div class="alert alert-danger" th:if="${not #strings.isEmpty(message)}">
                     <h6 th:text="$${message}"></h6>
-                </div>
+                </div>-->
                 <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#Modalone"><i class="fa-solid fa-plus"></i> Adicionar</button>
             </div>
 
@@ -21,7 +21,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr th:each="produto : ${produtos}">
+                    <!--<tr th:each="produto : ${produtos}">
                         <th scope="row" th:text="${produto.categoria}"></th>
                         <td th:text="${produto.nomeProduto}"></td>
                         <td th:text="${produto.descricao}"></td>
@@ -30,7 +30,7 @@
                             <a th:href="@{/admin/produto/edit/{id}(id=${produto.id})}" class="btn btn-warning" ><i class="fa-solid fa-pen-to-square"></i> Editar</a>
                             <a th:href="@{/admin/produto/delete/{id}(id=${produto.id})}"  class="btn btn-danger"><i class="fa-solid fa-square-minus"></i> Delete</a>
                         </td>
-                    </tr>
+                    </tr>-->
                 </tbody>
             </table>
         </div>
@@ -57,6 +57,11 @@
                         <span class="input-group-text">R$</span>
                         <input class="form-control money-mask" type="text" name="preco">
                     </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"></span>
+                        <input class="form-control money-mask" type="file" name="preco">
+                    </div
 
                     <div class="mb-3">
                         <select class="form-control form-control-sm" name="categoria">
