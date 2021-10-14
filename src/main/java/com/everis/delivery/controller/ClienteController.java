@@ -60,7 +60,7 @@ public class ClienteController {
 
     @GetMapping("/newpedido/pedido")
     public String pendingPedido(Model model) {
-        Pedido pedido = pedidoRepository.findAllByStatusPedido(StatusPedido.PENDENTE);
+        Pedido pedido = pedidoRepository.findByStatusPedido(StatusPedido.PENDENTE);
         model.addAttribute("pedido", pedido);
         List<Produto> produto = pedido.getProduto();
         return "cliente/pedido";

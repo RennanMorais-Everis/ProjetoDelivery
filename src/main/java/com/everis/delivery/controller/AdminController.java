@@ -1,7 +1,10 @@
 package com.everis.delivery.controller;
 
 import com.everis.delivery.dto.ProdutoRequest;
+import com.everis.delivery.model.Pedido;
 import com.everis.delivery.model.Produto;
+import com.everis.delivery.model.StatusPedido;
+import com.everis.delivery.repository.PedidoRepository;
 import com.everis.delivery.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,10 +23,19 @@ public class AdminController {
     @Autowired
     ProdutoRepository produtoRepository;
 
+    @Autowired
+    PedidoRepository pedidoRepository;
+
     @GetMapping
     public String admin(Model model) {
         long countProdutos = produtoRepository.count();
+        List<Pedido> pedidos = pedidoRepository.findAllByStatusPedido(StatusPedido.APROVADO);
+
+        Long countPedidos = pedidoRepository.count();
+
         model.addAttribute("countProdutos", countProdutos);
+        model.addAttribute("pedidos", pedidos);
+        model.addAttribute("countPedidos", countPedidos);
         return "admin/home";
     }
 

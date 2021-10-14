@@ -15,7 +15,7 @@
                     <div class="col-md-4">
                         <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
-                                <h3 class="fs-2">R$ 6000</h3>
+                                <h3 class="fs-2" th:text="${#numbers.formatCurrency(#aggregates.sum(pedidos.![total]))}"></h3>
                                 <p class="fs-5">Lucros Brutos</p>
                             </div>
                             <i
@@ -26,7 +26,7 @@
                     <div class="col-md-4">
                         <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
-                                <h3 class="fs-2">134</h3>
+                                <h3 class="fs-2" th:text="${countPedidos}"></h3>
                                 <p class="fs-5">Pedidos Recebidos</p>
                             </div>
                             <i class="fas fa-list-alt fa-2x  primary-text border rounded-full secondary-bg p-3"></i>
@@ -40,17 +40,15 @@
                             <thead>
                                 <tr>
                                     <th scope="col" width="50">#</th>
-                                    <th scope="col">Produtos</th>
                                     <th scope="col">Nomes</th>
                                     <th scope="col">Total do Pedido</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Television</td>
-                                    <td>Jonny</td>
-                                    <td>$1200</td>
+                                <tr th:each="pedido : ${pedidos}">
+                                    <th th:text="${pedido.id}"></th>
+                                    <td>Nome Pessoa (Teste)</td>
+                                    <td>R$ <span th:text="${pedido.total}"></span></td>
                                 </tr>
                             </tbody>
                         </table>
