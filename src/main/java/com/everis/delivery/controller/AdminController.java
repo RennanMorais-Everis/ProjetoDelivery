@@ -1,5 +1,6 @@
 package com.everis.delivery.controller;
 
+import com.everis.delivery.dto.PedidoRequest;
 import com.everis.delivery.dto.ProdutoRequest;
 import com.everis.delivery.model.Pedido;
 import com.everis.delivery.model.Produto;
@@ -80,14 +81,25 @@ public class AdminController {
     }
 
     @GetMapping("/pedidos")
-    public String pedidos() {
+    public String pedidos(Model model) {
         List<Pedido> pedidos = pedidoRepository.findAllByStatusPedido(StatusPedido.CONCLUIDO);
+        model.addAttribute("pedidos", pedidos);
         return "admin/pedidos";
     }
 
     @GetMapping("/pedidos-recebidos")
-    public String pedidosRecebidos() {
+    public String pedidosRecebidos(Model model) {
+        List<Pedido> pedidos = pedidoRepository.findAllByStatusPedido(StatusPedido.APROVADO);
+        model.addAttribute("pedidos", pedidos);
         return "admin/pedidosRecebidos";
+    }
+
+    @PostMapping("/pedidos-recebidos/finalizar")
+    public String finalizar(PedidoRequest request) {
+        Pedido pedido = pedidoRepository.getById(request.getId());
+        pedido = request.finalizarStatus(pedido);
+        pedidoRepository.save(pedido);
+        return "redirect:/admin/pedidos-recebidos";
     }
 
 }

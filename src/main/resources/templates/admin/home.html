@@ -39,15 +39,15 @@
                         <table class="table bg-white rounded shadow-sm  table-hover">
                             <thead>
                                 <tr>
-                                    <th scope="col" width="50">#</th>
-                                    <th scope="col">Nomes</th>
+                                    <th scope="col">Pedido</th>
+                                    <th scope="col">Tipo de Pagamento</th>
                                     <th scope="col">Total do Pedido</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr th:each="pedido : ${pedidos}">
-                                    <th th:text="${pedido.id}"></th>
-                                    <td>Nome Pessoa (Teste)</td>
+                                    <th>Pedido  #<span th:text="${pedido.id}"></span></th>
+                                    <td th:text="${pedido.tipoPagamento}"></td>
                                     <td>R$ <span th:text="${pedido.total}"></span></td>
                                 </tr>
                             </tbody>

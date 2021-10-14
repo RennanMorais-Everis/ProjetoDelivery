@@ -43,4 +43,9 @@ public class PedidoRequest {
         pedido.setStatusPedido(StatusPedido.APROVADO);
         return pedido;
     }
+
+    public Pedido finalizarStatus(Pedido pedido) {
+        pedido.setStatusPedido(StatusPedido.CONCLUIDO);
+        return pedido;
+    }
 }
