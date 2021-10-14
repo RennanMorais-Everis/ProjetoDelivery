@@ -1,0 +1,45 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ever Pizzas - Login</title>
+    <link rel="stylesheet" href="http://localhost:8080/assets/css/style.css">
+    <link rel="stylesheet" href="http://localhost:8080/assets/css/bootstrap.min.css">
+    <script src="http://localhost:8080/assets/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/44922e80c2.js" crossorigin="anonymous"></script>
+    <script src="http://localhost:8080/assets/js/jquery-3.6.0.min.js"></script>
+    <script src="http://localhost:8080/assets/js/script.js"></script>
+
+</head>
+<body class="login-body">
+
+    <div class="container d-flex justify-content-center align-items-center h-100">
+        <div class="login-box">
+            <div class="card">
+                <div class="card-body">
+
+                    <div class="login-img d-flex justify-content-center">
+                        <img src="http://localhost:8080/assets/media/images/logo.png" width="150">
+                    </div>
+
+                    <form action="/login" method="POST">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Usuário</span>
+                            <input name="username" class="form-control " placeholder="Digite seu usuário"/>
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Senha</span>
+                            <input type="password" name="password" class="form-control " placeholder="Digite sua senha"/>
+                        </div>
+
+                        <button class="btn btn-primary mt-3" type="submit">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

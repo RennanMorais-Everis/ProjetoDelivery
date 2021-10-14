@@ -46,7 +46,7 @@
     align-items: center;
 }
 
-.login-area button {
+.login-area a {
     margin-right: 10px;
 }
 
@@ -80,37 +80,6 @@
     height: 300px;
 }
 
-/*Estilos do modal de login e cadastro*/
-.login-modal {
-    width: 100%;
-    max-width: 400px;
-    height: 500px;
-    position: absolute;
-    background-color: #FFF;
-    border: solid 1px #93AF00;
-    z-index: 99;
-    top: 100px;
-    margin-right: 200px;
-    padding: 20px;
-    border-radius: 5px;
-    display: none;
-}
-
-.cadastro-modal {
-    width: 100%;
-    max-width: 400px;
-    height: 600px;
-    position: absolute;
-    background-color: #FFF;
-    border: solid 1px #93AF00;
-    z-index: 99;
-    top: 100px;
-    margin-right: 200px;
-    padding: 20px;
-    border-radius: 5px;
-    display: none;
-}
-
 .close-bt {
     margin-top: -10px;
     margin-left: 335px;
@@ -135,8 +104,18 @@
     top: 8%;
 }
 
+.login-body {
+    background-image: url("http://localhost:8080/assets/media/images/background.jpg");
+}
 
+.login-box {
+    width:100%;
+    max-width:500px;
+}
 
+.content {
+    height:600px;
+}
 ---------------------------------------------------
 
 <! ----- style1 ---->

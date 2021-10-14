@@ -1,0 +1,47 @@
+<th:block th:include="cliente/partials/header"></th:block>
+
+<div class="container">
+
+    <h4>Informações do pedido</h4>
+
+    <div class="card">
+        <div class="card-body">
+
+            <table class="table bg-white table-hover rounded shadow-sm text-center justify-content-center">
+                <thead class="table-dark">
+                <tr>
+                    <th scope="col">Produto</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Preço</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="produto : ${pedido.produto}">
+                    <th scope="row" th:text="${produto.categoria}"></th>
+                    <td th:text="${produto.nomeProduto}"></td>
+                    <td>R$ <span th:text="${produto.preco}"></span></td>
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td colspan="2">Total do pedido</td>
+                    <td><span th:text="${#numbers.formatCurrency(#aggregates.sum(pedido.produto.![preco]))}"></span></td>
+                </tr>
+                </tfoot>
+            </table>
+
+            <form action="/newpedido/pedido/save" method="POST">
+
+                <input type="text" name="id" hidden th:value="${pedido.id}">
+
+                <input type="text" name="total" hidden th:value="${#aggregates.sum(pedido.produto.![preco])}">
+
+                <button type="submit" class="btn btn-info">Enviar Pedido</button>
+
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<th:block th:include="cliente/partials/footer"></th:block>

@@ -5,49 +5,45 @@ import lombok.*;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 
 @Entity
 @Table(name = "pedidos")
-@Getter
-@Setter
-@ToString
-@RequiredArgsConstructor
-public class Carrinho {
+@Data
+public class Pedido {
 
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne //Um Carrinho para um cliente
+
+    @ManyToOne(fetch = FetchType.LAZY)
     private Usuario cliente;
 
-    @OneToMany
-    @ToString.Exclude//um carrinho para varios produtos
+    @ManyToMany
     private List<Produto> produto;
-
-    @Enumerated(EnumType.STRING)
-    private StatusPedido statusPedido;
 
     @Enumerated(EnumType.STRING)
     private TipoPagamento tipoPagamento;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern =  "dd-MM-yyyy HH-mm") //formato de data
+    @Enumerated(EnumType.STRING)
+    private StatusPedido statusPedido = StatusPedido.PENDENTE;
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern =  "dd-MM-yyyy") //Formatando data para Json
     private LocalDateTime dataCriacao = LocalDateTime.now();
 
-    private double subTotal;
-    private double frete;
-    private double total;
-    private Boolean validaPedido = false;
+    private BigDecimal frete;
+    private BigDecimal total;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        Carrinho carrinho = (Carrinho) o;
-        return Objects.equals(id, carrinho.id);
+        Pedido pedido = (Pedido) o;
+        return Objects.equals(id, pedido.id);
     }
 
     @Override
